@@ -1,14 +1,14 @@
 import axios from 'axios'
 
-const state = { 
+const state = {
     users: []
 };
 
-const getters = { 
+const getters = {
     usersList: state => state.users
 };
 
-const actions = { 
+const actions = {
     async fetchUsers({commit}){
       const response = await axios.get("http://localhost:3000/users");
       commit("setUsers", response.data)
@@ -23,7 +23,7 @@ const actions = {
     }
 };
 
-const mutations = { 
+const mutations = {
     setUsers: (state, users) => (
         state.users = users
     ),
